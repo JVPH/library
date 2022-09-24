@@ -5,8 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="./scripts/script.js" defer></script>
 </head>
 <body>
+    <header class="header">
+        <h1 class="title">Library</h1>
+    </header>
+    <main class="main">
+        <form action="/" id="form" autocomplete="off">
+            <div class="wrapper">
+                <label for="title">Book</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div class="wrapper">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author" required>
+            </div>
+            <div class="wrapper">
+                <label for="nOfPages">Number Of Pages</label>
+                <input type="number" name="nOfPages" id="nOfPages" required>
+            </div>
+            <div class="wrapper">
+                <label for="read">Read:</label>
+                <input type="checkbox" name="read" id="read">
+            </div>
+            <button class="add-book-btn" id="add-book-btn" type="submit" >Add Book</button>
+        </form>
+       
+    </main>
+    <footer class="footer">
+        <p class="footer-message">Made by JVPH</p>
+    </footer>
     
 </body>
 </html>
