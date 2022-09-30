@@ -36,25 +36,36 @@ const displayBook = (book) => {
     bookCard.dataset.index = `${library.books.indexOf(book)}`;   
 
     const bookTitle = document.createElement('p');
+    bookTitle.classList.add('title');
     bookTitle.textContent = book.title;
     bookCard.appendChild(bookTitle);
 
     const bookAuthor = document.createElement('p');
-    bookAuthor.textContent = book.author;
+    bookAuthor.classList.add('author');
+    bookAuthor.textContent = `Author: ${book.author}`;
     bookCard.appendChild(bookAuthor);
 
     const bookPages = document.createElement('p');
-    bookPages.textContent = book.nOfPages;
+    bookPages.classList.add('num-of-pages');
+    bookPages.textContent =`Pages: ${book.nOfPages}`;
     bookCard.appendChild(bookPages);
 
+    
+    const labelForCheckbox = document.createElement('label');
+    labelForCheckbox.classList.add('read-input-wrapper');
+    labelForCheckbox.textContent = 'Read: ';
+    labelForCheckbox.setAttribute('for', 'read-book-card')
     const bookToggleRead = document.createElement('input');
     bookToggleRead.setAttribute('type','checkbox');
+    bookToggleRead.setAttribute('id','read-book-card');
     bookToggleRead.checked = book.read;
-    bookCard.appendChild(bookToggleRead);
-
+    
+    labelForCheckbox.appendChild(bookToggleRead);
+    bookCard.appendChild(labelForCheckbox);
+    
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-book-btn');
-    deleteBtn.textContent = '×';
+    deleteBtn.textContent = 'Delete';
     bookCard.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e) => {
