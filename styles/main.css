@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,200&display=swap');
+
 html,
 body {
     margin: 0;
@@ -10,6 +12,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Raleway', sans-serif;
+    background-color: #FFF5E4;
 }
 
 p {
@@ -23,8 +27,7 @@ p {
     min-height: 50vh;
     min-width: 50vw;
     overflow: auto;
-    gap: 4px;
-    padding: 4px;    
+    gap: 20px;     
     grid-template-rows:  repeat(auto-fit, minmax(150px, 1fr));
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
@@ -35,7 +38,106 @@ p {
     box-sizing: border-box;
     max-width: 250px;
     max-height: 300px;
-    border: 1px solid grey;
-    justify-content: space-evenly;
-    padding: 1rem;
+    border-radius: 5px; 
+    border: 1px antiquewhite solid;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #FFE3E1;
+    min-height: 230px;    
 }
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.7rem;
+}
+
+button {
+    background-color: #FF9494;
+    border-radius: 10px;
+    border: none;    
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+
+.add-book-btn {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background-color: #FFE3E1;
+}
+
+input[type="checkbox"]{    
+    display: grid;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    position: relative;
+    left: 6px;
+    top: 4px;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+.wrapper-input-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card > .title {
+    background-color: #FF9494;
+    font-size: 2rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.book-card > .delete-book-btn {
+    border-radius: 0px;    
+    font-size: 1.2rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-radius: 5px;
+}
+
+.book-card > .read-input-wrapper {
+    display: flex;
+    align-self: center;    
+}
+
+.read-input-wrapper > input {
+    align-self: center;
+    position: relative;
+    top: -1px;
+}
+
+.site-title {
+    font-size: 4rem;
+}
+
