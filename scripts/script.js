@@ -5,49 +5,78 @@ class Book {
         this.author = author;
         this.nOfPages = nOfPages;
         this.read = read;    
-    }
-
-    toString() {        
-        const read = this.read ? 'Yes' : 'No';
-        return `${this.title}\nBy ${this.author}\n${this.nOfPages} pages\nRead? ${read}`
-    }
+    }    
 }
 class Library {
     constructor(){
         this.books = [];
     }
 
-    addBookToArray(book){
-        this.books = this.books.concat(book);
+    addBookToLibrary(book){
+        this.books.push(book);
     }
 
     getBooks(){
-        console.log(this.books);
-    }  
+        return this.books;
+    }
+    
+    removeBookFromLibrary(index){
+        this.books.splice(index, 1);
+    }
     
 }
 
-const displayBooksFromArray = (book) => {    
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('book-element');    
-    const p = document.createElement('p');
-    p.textContent = book.toString();
-    bookElement.appendChild(p);
-    booksDisplay.appendChild(bookElement);          
+const library = new Library();
+
+const displayBook = (book) => {  
+
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    
+    bookCard.dataset.index = `${library.books.indexOf(book)}`;   
+
+    const bookTitle = document.createElement('p');
+    bookTitle.textContent = book.title;
+    bookCard.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('p');
+    bookAuthor.textContent = book.author;
+    bookCard.appendChild(bookAuthor);
+
+    const bookPages = document.createElement('p');
+    bookPages.textContent = book.nOfPages;
+    bookCard.appendChild(bookPages);
+
+    const bookToggleRead = document.createElement('input');
+    bookToggleRead.setAttribute('type','checkbox');
+    bookToggleRead.checked = book.read;
+    bookCard.appendChild(bookToggleRead);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-book-btn');
+    deleteBtn.textContent = '×';
+    bookCard.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener('click', (e) => {
+        library.removeBookFromLibrary(parseInt(e.currentTarget.parentNode.getAttribute('data-index')));
+        e.currentTarget.parentNode.remove();
+    });       
+
+    booksDisplay.appendChild(bookCard);
 }
 
-const library = new Library();
-const title = document.querySelector('#title');
-const author = document.querySelector('#author');
-const nOfPages = document.querySelector('#nOfPages');
-const read = document.querySelector('#read');
-const form = document.querySelector('#form');
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const nOfPagesInput = document.querySelector('#nOfPages');
+const readInput = document.querySelector('#read');
+const formInput = document.querySelector('#form');
+
 
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();    
-    const book = new Book(title.value, author.value, nOfPages.value, read.checked);  
-    library.addBookToArray(book);     
-    form.reset();
-    displayBooksFromArray(book);
+    const book = new Book(titleInput.value, authorInput.value, nOfPagesInput.value, readInput.checked);  
+    library.addBookToLibrary(book);     
+    formInput.reset();
+    displayBook(book);
 });
