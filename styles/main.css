@@ -83,6 +83,11 @@ input {
     background-color: #FFE3E1;
 }
 
+#read {
+    position: relative;
+    left: 15px;
+}
+
 input[type="checkbox"]{    
     display: grid;
     font: inherit;
@@ -119,9 +124,8 @@ input[type="checkbox"]:focus {
 }
 
 .book-card > .delete-book-btn {    
-    font-size: 1.2rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;    
+    font-size: 1.2rem;    
+    border-radius: 0px 0px 5px 5px;
 }
 
 .book-card > .read-input-wrapper {
