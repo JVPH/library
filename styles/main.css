@@ -118,12 +118,10 @@ input[type="checkbox"]:focus {
     border-top-right-radius: 5px;
 }
 
-.book-card > .delete-book-btn {
-    border-radius: 0px;    
+.book-card > .delete-book-btn {    
     font-size: 1.2rem;
     border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-radius: 5px;
+    border-bottom-right-radius: 5px;    
 }
 
 .book-card > .read-input-wrapper {
